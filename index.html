@@ -10,50 +10,113 @@
 <body class="shower list">
 
 	<header class="caption">
-		<h1>Shower Presentation Engine</h1>
-		<p>Yours Truly, Famous Inc.</p>
+		<h1>Angular + RxJS = BFF</h1>
 	</header>
 
 	<section class="slide" id="cover">
-		<h2>Shower Presentation Engine</h2>
-		<p>Brought to you by <a href="http://pepelsbey.net">Vadim Makeev</a></p>
-		<figure>
-			<img class="cover" src="pictures/cover.jpg" alt="Hands on the orange typewriter in a park">
-			<figcaption class="white">
-				<a href="http://fiftyfootshadows.net/">© John Carey</a>
-			</figcaption>
-		</figure>
+		<div class="wrapper">
+			<img src="/pictures/angular.svg" alt="angular logo" class="cover__logo">
+			<span class="plus">+</span>
+			<img src="/pictures/rx.png" alt="rx logo" class="cover__logo">
+		</div>
+		<p>Best Friends Forever</p>
 		<style>
-			#cover h2 {
-				margin:30px 0 0;
+			#cover {
+				background-color: #1976d2;
+			}
+			#cover .wrapper {
+				display: flex;
+				justify-content: space-around;
+			}
+			#cover .wrapper span {
 				color:#FFF;
 				text-align:center;
-				font-size:70px;
-				}
+				font-size:60px;
+				align-self: center;
+			}
+			#cover .wrapper img{
+				width: 200px;
+				height: 200px;
+			}
 			#cover p {
 				margin:10px 0 0;
 				text-align:center;
 				color:#FFF;
-				font-style:italic;
-				font-size:20px;
+				font-size:70px;
+				text-transform: uppercase;
 				}
-				#cover p a {
-					color:#FFF;
-					}
 		</style>
 	</section>
 
 	<section class="slide">
-		<h2>Shower key features</h2>
-		<ol>
-			<li>Built on HTML, CSS and vanilla JavaScript</li>
-			<li>Works in all modern browsers</li>
-			<li>Themes are separated from engine</li>
-			<li>Modular and extensible</li>
-			<li>Fully keyboard accessible</li>
-			<li>Printable to PDF</li>
-		</ol>
-		<p class="note">Shower ['ʃəuə] noun. A person or thing that shows.</p>
+		<ul class="questions">
+			<li>Кто слышал о Реактивном программировании?</li>
+			<li class="next">Кто использует Rx в продакшене?</li>
+			<li class="next">Кто использует что-то большее, чем HttpClientModule?</li>
+		</ul>
+		<style>
+			.questions li {
+				font-size: 35px;
+			}
+		</style>
+	</section>
+
+	<section class="slide black">
+		<figure>
+			<img class="fullscreen" src="/pictures/rxcover.jpg" alt="Photo of night road">
+			<figcaption>
+				<p class="rx-def">An Api for asynchronous programming with observable streams</p>
+			</figcaption>
+		</figure>
+		<style>
+			.fullscreen {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%,-50%);
+			}
+			.rx-def {
+				position: relative;
+				z-index: 2;
+				color: #fff;
+				font-size: 40px;
+				text-align: center;
+				margin-top: 10%;
+			}
+		</style>
+	</section>
+
+	<!-- mb slide with screen from presentalional mode of webstorm is better-->
+			<!--interface Observer<T> {-->
+					<!--next: (value: T) => void;-->
+					<!--error: (err: any) => void;-->
+					<!--complete: () => void;-->
+				<!--}-->
+	<section class="slide ">
+		<pre>
+			<code class="obs-callback" style="margin-left: -180px; margin-top: -60px;padding: 0;line-height: 1;">
+				const observarble = {
+					subscribe: function subscribe(ob) {
+						[10,20,30].forEach(ob.next);
+						ob.complete();
+					},
+				}
+
+				const observer = {
+					next: function nextCallback(data) {
+						// do something on each data portion
+					},
+					error: function errorCallback(err) {
+						// dp smth on error
+					},
+					complete: function completeCallback() {
+						// end of stream
+					}
+				}
+
+				observable.subscribe(observer);
+			</code>
+		</pre>
 	</section>
 
 	<section class="slide">
