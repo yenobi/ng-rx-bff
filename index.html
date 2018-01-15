@@ -187,7 +187,64 @@
 	</section>
 
 	<section class="slide">
-		<h2>Asyn pipe</h2>
+		<h2>Async pipe</h2>
+		<p>The async pipe subscribes to an Observable or Promise and returns the latest value it has emitted.
+			When a new value is emitted, the async pipe marks the component to be checked for changes.
+			When the component gets destroyed, the async pipe unsubscribes automatically to avoid potential memory leaks.</p>
+	</section>
+
+	<section class="slide">
+		<pre>
+			<code style="padding: 0;margin-left: -250px;margin-top: 40px;">
+				&lt;ul&gt;
+					&lt;li *ngFor="r of results$ | async"&gt; {{r.name}}&lt;/li&gt;
+				&lt;/ul&gt;
+			</code>
+		</pre>
+	</section>
+
+	<section class="slide">
+		<pre>
+			<code style="    padding: 0;margin-left: -250px;">
+				&lt;div&gt;
+					&lt;h3&gt;User Profile&lt;/h3&gt;
+					&lt;span&gt;{{ (user$ | async)?.name }}&lt;/span&gt;
+					&lt;span&gt;{{ (user$ | async)?.id }}&lt;/span&gt;
+					&lt;img [src]="(user$ | async)?.profile_image"&gt;
+				&lt;/div&gt;
+			</code>
+		</pre>
+	</section>
+
+	<!-- mb some joke for dumb and smart components-->
+
+	<section class="slide">
+		<pre>
+			<code style="padding: 0;margin-left: -250px;margin-top: -80px;">
+				&lt;div&gt;
+					&lt;h3&gt;User Profile&lt;/h3&gt;
+					&lt;span&gt;{{ user.name }}&lt;/span&gt;
+					&lt;span&gt;{{ user.id }}&lt;/span&gt;
+					&lt;img [src]="user.profile_image"&gt;
+				&lt;/div&gt;
+			</code>
+		</pre>
+
+		<pre>
+			<code style="padding: 0; margin-left: -250px;margin-top: -60px;">
+				export class ProfileComponent {
+					@Input() user: User = {};
+				}
+			</code>
+		</pre>
+	</section>
+
+	<section class="slide">
+		<pre>
+			<code style="padding: 0;margin-left: -250px;margin-top: 60px;">
+				&lt;user-profile [user]="user$ | async"&gt;&lt;/user-profile&gt;
+			</code>
+		</pre>
 	</section>
 
 	<section class="slide">
