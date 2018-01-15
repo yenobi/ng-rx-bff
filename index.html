@@ -120,28 +120,149 @@
 	</section>
 
 	<section class="slide">
-		<h2>Plain text on your slides</h2>
-		<p>Lorem ipsum dolor sit amet, consectetur <a href="#4">adipisicing</a> elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, <em>quis nostrud</em> exercitation ullamco laboris <strong>nisi ut aliquip</strong> ex ea commodo consequat. Duis aute irure <i>dolor</i> in reprehenderit in voluptate velit esse cillum <b>dolore</b> eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in <code>&lt;culpa&gt;</code> qui officia deserunt mollit anim id est laborum.</p>
+		<ol class="pros">
+			<li>Build-in for Angular</li>
+			<li class="next">Best practice and code examples from framework</li>
+			<li class="next">Consistency of code base</li>
+			<li class="next">Ubiquitous - RX is everywhere, and it's meant for everything.</li>
+		</ol>
+		<style>
+			.pros li {
+				font-size: 35px;
+			}
+		</style>
 	</section>
 
 	<section class="slide">
-		<h2>Two columns if you like</h2>
-		<p class="double">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.</p>
+		<h2>Autocomplete component</h2>
+		<video src="pictures/giphy.mp4" autoplay></video>
 	</section>
 
 	<section class="slide">
-		<h2>All kind of lists</h2>
+		<h2>Slide with icons of autocomplete plan</h2>
+	</section>
+
+	<section class="slide">
+		<pre>
+			<code style="margin-left: -190px; margin-top: -60px;padding: 0;">
+				const input$ = Rx.Observable
+					.fromEvent(inputElement, 'change')
+					.map(element => element.target.value)
+					.filter(text => text.length >= 3)
+					.debounce(500)
+					.distinctUntilChanged()
+					.switchMap(val => httpClineModule.getData('url'));
+			</code>
+		</pre>
+	</section>
+
+	<!-- not actual slide -->
+	<section class="slide">
+		И казалось бы - вот оно счастье.
+		Компонент автокомплита, не самой сложной, но и не самой тривиальной задачи
+		всего в 7 строк, но нет. Еще одна прелесть, которая иногда смущает и вызывает вопросы новичков в Рх
+		- почему эти 7 строк не генерят запрос.
+		А все дело в том, что обз - ленивые по своей сути. пока нет ниодного подписчика,
+		т.е. никому показывать дату - никто не будет за ней ходить.
+	</section>
+
+	<section class="slide">
+		<pre>
+			<code style="margin-left: -190px; margin-top: -80px;padding: 0;">
+				const input$ = Rx.Observable
+					.fromEvent(inputElement, 'change')
+					.map(element => element.target.value)
+					.filter(text => text.length >= 3)
+					.debounce(500)
+					.distinctUntilChanged()
+					.switchMap(val => httpClineModule.getData('url'));
+			</code>
+		</pre>
+		<pre>
+			<code style="    margin-top: -130px; margin-left: -130px; color: green; padding: 0">
+				.subscribe(
+					(receivedData) => { this.data = receivedData;},
+					(err) => { handleError(err); });</code>
+		</pre>
+	</section>
+
+	<section class="slide">
+		<h2>Async pipe</h2>
+		<p>The async pipe subscribes to an Observable or Promise and returns the latest value it has emitted.
+			When a new value is emitted, the async pipe marks the component to be checked for changes.
+			When the component gets destroyed, the async pipe unsubscribes automatically to avoid potential memory leaks.</p>
+	</section>
+
+	<section class="slide">
+		<pre>
+			<code style="padding: 0;margin-left: -250px;margin-top: 40px;">
+				&lt;ul&gt;
+					&lt;li *ngFor="r of results$ | async"&gt; {{r.name}}&lt;/li&gt;
+				&lt;/ul&gt;
+			</code>
+		</pre>
+	</section>
+
+	<section class="slide">
+		<pre>
+			<code style="    padding: 0;margin-left: -250px;">
+				&lt;div&gt;
+					&lt;h3&gt;User Profile&lt;/h3&gt;
+					&lt;span&gt;{{ (user$ | async)?.name }}&lt;/span&gt;
+					&lt;span&gt;{{ (user$ | async)?.id }}&lt;/span&gt;
+					&lt;img [src]="(user$ | async)?.profile_image"&gt;
+				&lt;/div&gt;
+			</code>
+		</pre>
+	</section>
+
+	<!-- mb some joke for dumb and smart components-->
+
+	<section class="slide">
+		<pre>
+			<code style="padding: 0;margin-left: -250px;margin-top: -80px;">
+				&lt;div&gt;
+					&lt;h3&gt;User Profile&lt;/h3&gt;
+					&lt;span&gt;{{ user.name }}&lt;/span&gt;
+					&lt;span&gt;{{ user.id }}&lt;/span&gt;
+					&lt;img [src]="user.profile_image"&gt;
+				&lt;/div&gt;
+			</code>
+		</pre>
+
+		<pre>
+			<code style="padding: 0; margin-left: -250px;margin-top: -60px;">
+				export class ProfileComponent {
+					@Input() user: User = {};
+				}
+			</code>
+		</pre>
+	</section>
+
+	<section class="slide">
+		<pre>
+			<code style="padding: 0;margin-left: -250px;margin-top: 60px;">
+				&lt;user-profile [user]="user$ | async"&gt;&lt;/user-profile&gt;
+			</code>
+		</pre>
+	</section>
+
+	<section class="slide">
+		<!-- и чтобы далеко не уходить от хттпКлиентМодуля давайте заглянем внутрь.
+		Если честно, то в ХттпМодуле было полегче разобраться, но теперь он спроектирован куда лучше.
+		код -> и что можем для себя забрать из такого с первого вида простого кода
+		-
+		-
+		-->
+	</section>
+
+	<section class="slide">
+		<h2>Промежуточные выводы</h2>
 		<ol>
-			<li>Simple lists are marked with bullets</li>
-			<li>Ordered lists begin with a number</li>
-			<li>You can even nest lists one inside another
-				<ul>
-					<li>Or mix their types</li>
-					<li>But do not go too far</li>
-					<li>Otherwise audience will be bored</li>
-				</ul>
-			</li>
-			<li>Look, seven rows exactly!</li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li><li>
 		</ol>
 	</section>
 
@@ -155,55 +276,7 @@
 		</figure>
 	</section>
 
-	<section class="slide">
-		<h2>Code samples</h2>
-		<pre>
-			<code>&lt;!DOCTYPE html&gt;</code>
-			<code class="mark">&lt;html lang="en"&gt;</code>
-			<code><mark>&lt;head&gt;</mark> <span class="comment">&lt;!--Comment--&gt;</span></code>
-			<code>    &lt;title&gt;Shower&lt;/title&gt;</code>
-			<code>    &lt;meta charset="<mark class="important">UTF-8</mark>"&gt;</code>
-			<code>    &lt;link rel="stylesheet" href="screen.css"&gt;</code>
-			<code><mark>&lt;/head&gt;</mark></code>
-		</pre>
-	</section>
 
-	<section class="slide">
-		<h2>Even tables</h2>
-		<table>
-		<tr>
-			<th scope="col">Locavore</th>
-			<th>Umami</th>
-			<th>Helvetica</th>
-			<th>Vegan</th>
-		</tr>
-		<tr>
-			<th scope="row">Fingerstache</th>
-			<td>Kale</td>
-			<td>Chips</td>
-			<td>Keytar</td>
-		</tr>
-		<tr>
-			<th scope="row">Sriracha</th>
-			<td>Gluten-free</td>
-			<td>Ennui</td>
-			<td>Keffiyeh</td>
-		</tr>
-		<tr>
-			<th scope="row">Thundercats</th>
-			<td>Jean</td>
-			<td>Shorts</td>
-			<td>Biodiesel</td>
-		</tr>
-		<tr>
-			<th scope="row">Terry</th>
-			<td>Richardson</td>
-			<td>Swag</td>
-			<td>Blog</td>
-		</tr>
-		</table>
-		<p>It’s good to have information organized.</p>
-	</section>
 
 	<section class="slide" id="picture">
 		<h2>Pictures</h2>
@@ -224,20 +297,6 @@
 		<h2 class="shout shrink">You can even shout this way</h2>
 	</section>
 
-	<section class="slide">
-		<h2>Inner navigation</h2>
-		<ol>
-			<li>Lets you reveal list items one by one</li>
-			<li class="next">To keep some key points</li>
-			<li class="next">In secret from audience</li>
-			<li class="next">But it will work only once</li>
-			<li class="next">Nobody wants to see the same joke twice</li>
-		</ol>
-	</section>
-
-	<section class="slide grid">
-		<h2>All nicely aligned to grid</h2>
-	</section>
 
 	<section class="slide" id="see-more">
 		<h2 class="shout">
