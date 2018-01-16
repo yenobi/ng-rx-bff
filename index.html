@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Shower asd Presentation Engine</title>
+	<title>Angular + RxJS = BFF</title>
 	<meta charset="utf-8">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -374,6 +374,11 @@
 	Естественно я бы не приводил такую задачу, если бы в ее контексте нельзя
 	было использовать красивое решение с RxJS. В первом ангуляре была концепция
 	общения контроллеров через события. выглядело это примерно таким образом
+
+	Передавать события (с данными) можно посредством двух методов $scope.$emit
+	и $scope.$broadcast. Отличие $emit от $broadcast заключается в том,
+	что $emit передает события вверх по цепочке в скоупы всех родительских
+	контроллеров, а $broadcast наоборот – в дочерние
  -->
 
 	<section class="slide">
@@ -434,15 +439,51 @@
 	<section class="slide">
 		<figure>
 			<blockquote>
-				<p>The Last Piece in the Angular Architecture Puzzle.</p>
+				<p style="font-size: 40px;margin-top: 15%;">The Last Piece in the Angular Architecture Puzzle.</p>
 			</blockquote>
-			<figcaption>Asim Hussain</figcaption>
+			<figcaption style="font-size: 35px;">Asim Hussain</figcaption>
 		</figure>
+	</section>
+
+	<section class="slide">
+		<h2>@ngRx/platform</h2>
+		<ul>
+			<li class="clean-before">@ngRx/store - RxJS powered state management inspired by Redux.</li>
+			<li class="clean-before">@ngRx/effects - Side Effect to model event sources as actions.</li>
+			<li class="clean-before">@ngRx/router-store - Bindings for Router and store connection.</li>
+			<li class="clean-before">@ngRx/store-devtools - Powerful time-travelling debugger.</li>
+			<li class="clean-before">@ngRx/entity - Entity State adapter for managing record collections.</li>
+		</ul>
+		<p>image with logos redux + rx + ng = ngRx</p>
+		<style>
+			.clean-before:before {
+				display: none !important;
+			}
+		</style>
+	</section>
+
+	<section class="slide">
+		<h2>Core concepts:</h2>
+		<ul>
+			<li>State is a single immutable data structure</li>
+			<li>Actions describe state changes</li>
+			<li>Pure functions called reducers take the previous state and the next action to compute the new state</li>
+			<li>State accessed with the Store, an observable of state and an observer of actions</li>
+		</ul>
+	</section>
+
+	<section class="slide">
+		<!-- pros of ngRx and whole state managment -->
+	</section>
+
+
+	<section class="slide">
+		<h2 class="shout shrink">You might not need Redux</h2>
 	</section>
 
 
 
-	<section class="slide" id="picture">
+	<!-- <section class="slide" id="picture">
 		<h2>Pictures</h2>
 		<figure>
 			<img class="cover" src="pictures/picture.jpg" alt="Orange typewriter on a wooden table close-up">
@@ -455,27 +496,15 @@
 				color:#FFF;
 				}
 		</style>
-	</section>
+	</section> -->
 
 	<section class="slide">
-		<h2 class="shout shrink">You can even shout this way</h2>
+		<h2 class="shout shrink">Thank you!</h2>
 	</section>
 
 
 	<section class="slide" id="see-more">
-		<h2 class="shout">
-			<img src="pictures/logo.svg" alt="Shower logo">
-			<a href="https://github.com/shower/shower">See more on GitHub</a>
-		</h2>
-		<style>
-			#see-more h2 {
-				font-size:100px
-				}
-			#see-more img {
-				width:0.72em;
-				height:0.72em;
-				}
-		</style>
+		<h2 class="shout">Questions?</h2>
 	</section>
 
 	<footer class="badge">
