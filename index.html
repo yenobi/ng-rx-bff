@@ -349,6 +349,22 @@
 	</section>
 
 	<section class="slide">
+		<h2 style="text-align: center;font-size: 90px;">ng-controller</h2>
+		<h2 style="text-align: center;font-size: 90px; margin-top: 102px;">ng-include</h2>
+	</section>
+
+	<section class="slide">
+		<img src="pictures/brain.jpg" style="width: 300px;display: block;margin-left: auto;margin-right: auto;">
+		<h2 style="text-align: center;font-size: 90px; margin-top: 80px;">ng-include</h2>
+	</section>
+
+	<section class="slide">
+		<img src="pictures/brain.jpg" style="width: 300px;display: block;margin-left: auto;margin-right: auto;">
+		<img src="pictures/dumb.jpg" style="width: 250px;display: block;margin-left: auto;margin-right: auto;">
+	</section>
+
+
+	<section class="slide">
 		<h2>Async pipe</h2>
 		<p>The async pipe subscribes to an Observable or Promise and returns the latest value it has emitted.
 			When a new value is emitted, the async pipe marks the component to be checked for changes.
@@ -409,14 +425,14 @@
 		</pre>
 	</section>
 
-	<section class="slide">
+	<!-- <section class="slide"> -->
 		<!-- и чтобы далеко не уходить от хттпКлиентМодуля давайте заглянем внутрь.
 		Если честно, то в ХттпМодуле было полегче разобраться, но теперь он спроектирован куда лучше.
 		код -> и что можем для себя забрать из такого с первого вида простого кода
 		-
 		-
 		-->
-	</section>
+	<!-- </section> -->
 
 	<section class="slide">
 		<h2>Промежуточные выводы</h2>
@@ -629,20 +645,37 @@
 		<ul>
 			<li>State is a single immutable data structure</li>
 			<li>Actions describe state changes</li>
-			<li>Pure functions called reducers take the previous state and the next action to compute the new state</li>
-			<li>State accessed with the Store, an observable of state and an observer of actions</li>
+			<li>Pure functions (reducers) to compute the new state</li>
+			<li>State and Store is an observable of state and an observer of actions</li>
 		</ul>
 	</section>
 
 	<section class="slide">
-		<!-- pros of ngRx and whole state managment -->
+		<h2>Pros of ngRx</h2>
+		<ul>
+			<li>Clear methodology</li>
+			<li>Easy to debug</li>
+			<li>Simple testability</li>
+			<li>Performance</li>
+		</ul>
 	</section>
-
 
 	<section class="slide">
 		<h2 class="shout shrink">You might not need Redux</h2>
 	</section>
 
+<!-- так себе переход - такое чувство, что буду говорить о минусах стора на рх,
+		придумать переход  -->
+	<section class="slide">
+		<h2>Cons of RxJS</h2>
+		<ul>
+			<li></li>
+		</ul>
+	</section>
+
+
+	<!-- идея шутки под конец - скрин с йодой - сила (перечеркунто) стримы is
+	everywhere, Luk -->
 
 
 	<!-- <section class="slide" id="picture">
