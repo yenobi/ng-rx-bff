@@ -65,7 +65,7 @@
 		<figure>
 			<img class="fullscreen" src="/pictures/rxcover.jpg" alt="Photo of night road">
 			<figcaption>
-				<p class="rx-def">An Api for asynchronous programming with observable streams</p>
+				<p class="rx-def">An Api for Asynchronous Programming with Observable Streams</p>
 			</figcaption>
 		</figure>
 		<style>
@@ -86,21 +86,53 @@
 		</style>
 	</section>
 
+	<!-- поэтому пришлось -->
+
 	<!-- mb slide with screen from presentalional mode of webstorm is better-->
 			<!--interface Observer<T> {-->
 					<!--next: (value: T) => void;-->
 					<!--error: (err: any) => void;-->
 					<!--complete: () => void;-->
 				<!--}-->
-	<section class="slide ">
+
+	<section class="slide">
 		<pre>
-			<code class="obs-callback" style="margin-left: -180px; margin-top: -60px;padding: 0;line-height: 1;">
-				const observarble = {
-					subscribe: function subscribe(ob) {
+			<code style="padding: 0; margin-left: -250px; margin-top: -60px;">
+				class Observarble {
+					constructor(
+						`anything`
+					) {}
+
+					subscribe(ob) {
 						[10,20,30].forEach(ob.next);
 						ob.complete();
 					},
 				}
+			</code>
+		</pre>
+	</section>
+
+	<section class="slide">
+		<pre>
+			<code style="padding: 0; margin-left: -250px; margin-top: -100px;">
+				class Observer {
+					next(data) {
+						// callback for every value
+					},
+					error(err) {
+						// callback for error
+					},
+					complete() {
+						// callback for end of stream
+					}
+				}			</code>
+		</pre>
+	</section>
+
+	<!-- <section class="slide ">
+		<pre>
+			<code class="obs-callback" style="margin-left: -180px; margin-top: -60px;padding: 0;line-height: 1;">
+
 
 				const observer = {
 					next: function nextCallback(data) {
@@ -117,14 +149,14 @@
 				observable.subscribe(observer);
 			</code>
 		</pre>
-	</section>
+	</section> -->
 
 	<section class="slide">
 		<ol class="pros">
 			<li>Build-in for Angular</li>
 			<li class="next">Best practice and code examples from framework</li>
 			<li class="next">Consistency of code base</li>
-			<li class="next">Ubiquitous - RX is everywhere, and it's meant for everything.</li>
+			<li class="next">Ubiquitous - it's meant for everything</li>
 		</ol>
 		<style>
 			.pros li {
@@ -323,8 +355,11 @@
 
 		<!-- И казалось бы - вот оно счастье.
 		Компонент автокомплита, не самой сложной, но и не самой тривиальной задачи
-		всего в 7 строк, но нет. Еще одна прелесть, которая иногда смущает и вызывает вопросы новичков в Рх
+		всего в 7 строк, но нет. Если быть честным, то я немного
+		слукавил. Этот код абсолютно не рабочий и речь даже не о том, что
+		это псевдкод. Еще одна из особенностей потоков , которая иногда смущает и вызывает вопросы новичков в Рх
 		- почему эти 7 строк не генерят запрос.
+
 		А все дело в том, что обз - ленивые по своей сути. пока нет ниодного подписчика,
 		т.е. никому показывать дату - никто не будет за ней ходить. -->
 
@@ -347,6 +382,9 @@
 					(err) => { handleError(err); });</code>
 		</pre>
 	</section>
+
+	<!-- вот так все непросто заработет, но позволит избежать огромных раздутых
+	компонентов -->
 
 	<section class="slide">
 		<h2 style="text-align: center;font-size: 90px;">ng-controller</h2>
@@ -686,7 +724,7 @@
 			<li>Build-in with Angular</li>
 			<li>Concurrency made easy</li>
 			<li>Ubiquitous</li>
-			<li>Consistency<li>
+			<li>Consistency</li>
 		</ol>
 	</section>
 
