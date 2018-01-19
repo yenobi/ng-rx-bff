@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="node_modules/shower-ribbon/styles/screen-16x10.css">
+	<link rel="stylesheet" href="shower/themes/ribbon/styles/screen-16x10.css">
 </head>
 <body class="shower list">
 
@@ -15,9 +15,9 @@
 
 	<section class="slide" id="cover">
 		<div class="wrapper">
-			<img src="/pictures/angular.svg" alt="angular logo" class="cover__logo">
+			<img src="pictures/angular.svg" alt="angular logo" class="cover__logo">
 			<span class="plus">+</span>
-			<img src="/pictures/rx.png" alt="rx logo" class="cover__logo">
+			<img src="pictures/rx.png" alt="rx logo" class="cover__logo">
 		</div>
 		<p>Best Friends Forever</p>
 		<style>
@@ -48,22 +48,9 @@
 		</style>
 	</section>
 
-	<!-- <section class="slide">
-		<ul class="questions">
-			<li>Кто слышал о Реактивном программировании?</li>
-			<li class="next">Кто использует Rx в продакшене?</li>
-			<li class="next">Кто использует что-то большее, чем HttpClientModule?</li>
-		</ul>
-		<style>
-			.questions li {
-				font-size: 35px;
-			}
-		</style>
-	</section> -->
-
 	<section class="slide black">
 		<figure>
-			<img class="fullscreen" src="/pictures/rxcover.jpg" alt="Photo of night road">
+			<img class="fullscreen" src="pictures/rxcover.jpg" alt="Photo of night road">
 			<figcaption>
 				<p class="rx-def">An Api for Asynchronous Programming with Observable Streams</p>
 			</figcaption>
@@ -85,15 +72,6 @@
 			}
 		</style>
 	</section>
-
-	<!-- поэтому пришлось -->
-
-	<!-- mb slide with screen from presentalional mode of webstorm is better-->
-			<!--interface Observer<T> {-->
-					<!--next: (value: T) => void;-->
-					<!--error: (err: any) => void;-->
-					<!--complete: () => void;-->
-				<!--}-->
 
 	<section class="slide">
 		<pre>
@@ -129,28 +107,6 @@
 		</pre>
 	</section>
 
-	<!-- <section class="slide ">
-		<pre>
-			<code class="obs-callback" style="margin-left: -180px; margin-top: -60px;padding: 0;line-height: 1;">
-
-
-				const observer = {
-					next: function nextCallback(data) {
-						// do something on each data portion
-					},
-					error: function errorCallback(err) {
-						// do smth on error
-					},
-					complete: function completeCallback() {
-						// end of stream
-					}
-				}
-
-				observable.subscribe(observer);
-			</code>
-		</pre>
-	</section> -->
-
 	<section class="slide">
 		<ol class="pros">
 			<li>Build-in for Angular</li>
@@ -173,7 +129,6 @@
 	</section>
 
 	<section class="slide">
-		<!-- <h2>Slide with icons of autocomplete plan</h2> -->
 		<h2 style="text-align: center;">Typeahead Autocomplete</h2>
 		<div class="icons-wrapper">
 			<div class="column">
@@ -353,16 +308,6 @@
 		</pre>
 	</section>
 
-		<!-- И казалось бы - вот оно счастье.
-		Компонент автокомплита, не самой сложной, но и не самой тривиальной задачи
-		всего в 7 строк, но нет. Если быть честным, то я немного
-		слукавил. Этот код абсолютно не рабочий и речь даже не о том, что
-		это псевдкод. Еще одна из особенностей потоков , которая иногда смущает и вызывает вопросы новичков в Рх
-		- почему эти 7 строк не генерят запрос.
-
-		А все дело в том, что обз - ленивые по своей сути. пока нет ниодного подписчика,
-		т.е. никому показывать дату - никто не будет за ней ходить. -->
-
 	<section class="slide">
 		<pre>
 			<code style="margin-left: -190px; margin-top: -80px;padding: 0;">
@@ -382,9 +327,6 @@
 					(err) => { handleError(err); });</code>
 		</pre>
 	</section>
-
-	<!-- вот так все непросто заработет, но позволит избежать огромных раздутых
-	компонентов -->
 
 	<section class="slide">
 		<h2 style="text-align: center;font-size: 90px;">ng-controller</h2>
@@ -432,8 +374,6 @@
 		</pre>
 	</section>
 
-	<!-- mb some joke for dumb and smart components-->
-
 	<section class="slide">
 		<pre>
 			<code style="padding: 0;margin-left: -250px;margin-top: -80px;">
@@ -463,17 +403,6 @@
 		</pre>
 	</section>
 
-	<!-- <section class="slide"> -->
-		<!-- и чтобы далеко не уходить от хттпКлиентМодуля давайте заглянем внутрь.
-		Если честно, то в ХттпМодуле было полегче разобраться, но теперь он спроектирован куда лучше.
-		код -> и что можем для себя забрать из такого с первого вида простого кода
-		-
-		-
-		-->
-	<!-- </section> -->
-
-
-<!-- start event bus -->
 	<section class="slide">
 		<div id="parent-ee">
 		  <div class="first">
@@ -543,7 +472,6 @@
 
 		#parent-s .inter-parent {
 			width: 46%;
-		  /* height: 300px; */
 		  display: flex;
 		  justify-content: center;
 		  align-items: center;
@@ -581,21 +509,7 @@
     position: absolute;
     bottom: 0px;
     left: 33%;">Module with second component</p>
-		<!-- redux or something other for state/data managment -->
 	</section>
-
-	<!-- можем снова использовать сервисы,
-	но если придется обрабатывать дату на лету,
-	да еще и по разному, то придется писать достаточно много методов чем-то.
-	Естественно я бы не приводил такую задачу, если бы в ее контексте нельзя
-	было использовать красивое решение с RxJS. В первом ангуляре была концепция
-	общения контроллеров через события. выглядело это примерно таким образом
-
-	Передавать события (с данными) можно посредством двух методов $scope.$emit
-	и $scope.$broadcast. Отличие $emit от $broadcast заключается в том,
-	что $emit передает события вверх по цепочке в скоупы всех родительских
-	контроллеров, а $broadcast наоборот – в дочерние
- -->
 
 	<section class="slide">
 		<pre>
@@ -651,7 +565,6 @@
 		</pre>
 	</section>
 
-	<!-- ngRx -->
 	<section class="slide">
 		<figure>
 			<blockquote>
@@ -702,20 +615,10 @@
 		<h2 class="shout shrink">You might not need Redux</h2>
 	</section>
 
-<!-- так себе переход - такое чувство, что буду говорить о минусах стора на рх,
-		придумать переход  -->
 	<section class="slide">
 		<h2 style="margin-top: 10%;text-align: center;">Pros - RxJS has >120 opearators</h2>
 		<h2 style="text-align: center;">Cons - RxJS has >120 opearators</h2>
 	</section>
-
-	<!-- <section class="slide">
-		<ul>
-			<li>Debugging sometimes awful</li>
-			<li>Learning curve</li>
-		</ul>
-	</section> -->
-
 
 <section class="slide">
 		<h2>Summary</h2>
@@ -742,27 +645,6 @@
 		</figure>
 	</section>
 
-
-
-	<!-- идея шутки под конец - скрин с йодой - сила (перечеркунто) стримы is
-	everywhere, Luk -->
-
-
-	<!-- <section class="slide" id="picture">
-		<h2>Pictures</h2>
-		<figure>
-			<img class="cover" src="pictures/picture.jpg" alt="Orange typewriter on a wooden table close-up">
-			<figcaption class="white">
-				<a href="http://fiftyfootshadows.net/">© John Carey</a>
-			</figcaption>
-		</figure>
-		<style>
-			#picture h2 {
-				color:#FFF;
-				}
-		</style>
-	</section> -->
-
 	<section class="slide">
 		<h2 class="shout shrink">Thank you!</h2>
 	</section>
@@ -778,8 +660,7 @@
 
 	<div class="progress"></div>
 
-	<script src="node_modules/shower-core/shower.min.js"></script>
-	<!-- Copyright © 2017 Yours Truly, Famous Inc. -->
+	<script src="shower/shower.min.js"></script>
 
 </body>
 </html>
